@@ -2,7 +2,7 @@
 
 | master  | dev |
 | ------------- | ------------- |
-| [![Build Status](https://travis-ci.com/larromba/reachability.svg?branch=master)](https://travis-ci.com/larromba/reachability) | [![Build Status](https://travis-ci.com/larromba/reachability.svg?branch=dev)](https://travis-ci.com/larromba/reachability) |
+| [![Build Status](https://travis-ci.com/larromba/Reachability.svg?branch=master)](https://travis-ci.com/larromba/reachability) | [![Build Status](https://travis-ci.com/larromba/Reachability.svg?branch=dev)](https://travis-ci.com/larromba/reachability) |
 
 ## About
 Simple Reachability implementation to detect if a network connection is present. Based on [this](https://github.com/larromba/etcetera) implementation.
