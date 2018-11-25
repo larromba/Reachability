@@ -1,0 +1,6 @@
+sources:
+  - ./Reachability
+templates:
+  - ./Templates
+output:
+  ./Generated

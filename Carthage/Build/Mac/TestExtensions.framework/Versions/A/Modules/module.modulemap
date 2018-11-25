@@ -1,0 +1,11 @@
+framework module TestExtensions {
+  umbrella header "TestExtensions.h"
+
+  export *
+  module * { export * }
+}
+
+module TestExtensions.Swift {
+    header "TestExtensions-Swift.h"
+    requires objc
+}
