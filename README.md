@@ -7,6 +7,8 @@
 ## About
 Simple Reachability implementation to detect if a network connection is present. Based on [this](https://github.com/larromba/etcetera) implementation.
 
+For more information about how to use the generated mock classes, go [here](https://github.com/larromba/swift-mockable)
+
 ## Installation
 
 ### Carthage
