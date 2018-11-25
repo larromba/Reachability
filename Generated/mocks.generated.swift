@@ -140,7 +140,7 @@ public class MockReachabilityDelegate: NSObject, ReachabilityDelegate {
     public 
     enum reachabilityDidChange1: String, _StringRawRepresentable {
       case name = "reachabilityDidChange1"
-      enum params: String, _StringRawRepresentable {
+      public enum params: String, _StringRawRepresentable {
         case reachability = "reachabilityDidChange(_reachability:Reachable,isReachable:Bool).reachability"
         case isReachable = "reachabilityDidChange(_reachability:Reachable,isReachable:Bool).isReachable"
       }
@@ -171,7 +171,7 @@ public class MockReachability: NSObject, Reachable {
     public 
     enum setDelegate1: String, _StringRawRepresentable {
       case name = "setDelegate1"
-      enum params: String, _StringRawRepresentable {
+      public enum params: String, _StringRawRepresentable {
         case delegate = "setDelegate(_delegate:ReachabilityDelegate).delegate"
       }
     }

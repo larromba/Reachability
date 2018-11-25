@@ -48,7 +48,7 @@ import AppKit
     enum {% call functionKeyName method count %}: String, {% call helperClassPrefix %}StringRawRepresentable {
       case name = "{% call functionKeyName method count %}"
       {% if not method.parameters.count == 0 %}
-      enum {% call parametersEnumName %}: String, {% call helperClassPrefix %}StringRawRepresentable {
+      public enum {% call parametersEnumName %}: String, {% call helperClassPrefix %}StringRawRepresentable {
       {% for parameter in method.parameters %}
         case {{ parameter.name }} = "{% call uniqueIdentifierForEnumParameter method parameter %}"
       {% endfor %}
