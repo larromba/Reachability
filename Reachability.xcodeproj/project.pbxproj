@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F02A48521AB05DE007A6ECD /* mocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F02A48421AB05DE007A6ECD /* mocks.generated.swift */; };
 		7F71B95021AAE06A00135925 /* Reachability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F71B94621AAE06A00135925 /* Reachability.framework */; };
 		7F71B95521AAE06A00135925 /* ReachabilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F71B95421AAE06A00135925 /* ReachabilityTests.swift */; };
 		7F71B95721AAE06A00135925 /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F71B94921AAE06A00135925 /* Reachability.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7F71B96121AAE09800135925 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F71B96021AAE09800135925 /* Reachability.swift */; };
-		7FAD2B6421AAEB0500F0E0A7 /* mocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAD2B6321AAEB0500F0E0A7 /* mocks.generated.swift */; };
 		7FAD2BBF21AAF7C700F0E0A7 /* TestExtensions.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7FAD2BBE21AAF7C700F0E0A7 /* TestExtensions.framework */; };
 		7FAD2BC121AAF7DB00F0E0A7 /* TestExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FAD2BBE21AAF7C700F0E0A7 /* TestExtensions.framework */; };
 /* End PBXBuildFile section */
@@ -40,6 +40,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7F02A48421AB05DE007A6ECD /* mocks.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mocks.generated.swift; sourceTree = "<group>"; };
 		7F71B94621AAE06A00135925 /* Reachability.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Reachability.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F71B94921AAE06A00135925 /* Reachability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		7F71B94A21AAE06A00135925 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -48,7 +49,6 @@
 		7F71B95621AAE06A00135925 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7F71B96021AAE09800135925 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		7F71B96421AAE33F00135925 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		7FAD2B6321AAEB0500F0E0A7 /* mocks.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = mocks.generated.swift; path = Generated/mocks.generated.swift; sourceTree = SOURCE_ROOT; };
 		7FAD2BBE21AAF7C700F0E0A7 /* TestExtensions.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TestExtensions.framework; path = Carthage/Build/Mac/TestExtensions.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,7 +97,7 @@
 			children = (
 				7F71B94921AAE06A00135925 /* Reachability.h */,
 				7F71B96021AAE09800135925 /* Reachability.swift */,
-				7FAD2B6321AAEB0500F0E0A7 /* mocks.generated.swift */,
+				7F02A48421AB05DE007A6ECD /* mocks.generated.swift */,
 				7F71B94A21AAE06A00135925 /* Info.plist */,
 			);
 			path = Reachability;
@@ -268,7 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7FAD2B6421AAEB0500F0E0A7 /* mocks.generated.swift in Sources */,
+				7F02A48521AB05DE007A6ECD /* mocks.generated.swift in Sources */,
 				7F71B96121AAE09800135925 /* Reachability.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
