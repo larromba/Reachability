@@ -144,6 +144,10 @@ public class MockReachabilityDelegate: NSObject, ReachabilityDelegate {
         case isReachable = "reachabilityDidChange(_reachability:Reachable,isReachable:Bool).isReachable"
       }
     }
+
+    public override init() {
+      super.init()
+    }
 }
 
 public class MockReachability: NSObject, Reachable {
@@ -173,5 +177,9 @@ public class MockReachability: NSObject, Reachable {
       public enum params: String, _StringRawRepresentable {
         case delegate = "setDelegate(_delegate:ReachabilityDelegate).delegate"
       }
+    }
+
+    public override init() {
+      super.init()
     }
 }
