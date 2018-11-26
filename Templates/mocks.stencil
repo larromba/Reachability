@@ -211,6 +211,10 @@ public class {% if type.annotations.name %}{% call mockedClassName type.annotati
     public {% call enumDefinition method forloop.counter %}
     {% endfor %}
     {% endif %}
+
+    public override init() {
+      super.init()
+    }
     {% if type.annotations.init == "coder" %}
 
     public required init?(coder aDecoder: NSCoder) {
