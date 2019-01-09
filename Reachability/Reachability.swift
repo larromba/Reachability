@@ -81,6 +81,11 @@ public final class Reachability: NSObject, Reachable {
         SCNetworkReachabilitySetDispatchQueue(reachability, .global())
     }
 
+    deinit {
+        guard let reachability = reachability else { return }
+        SCNetworkReachabilitySetCallback(reachability, nil, nil)
+    }
+
     public func setDelegate(_ delegate: ReachabilityDelegate) {
         self.delegate = delegate
     }

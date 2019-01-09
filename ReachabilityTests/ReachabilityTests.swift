@@ -5,40 +5,49 @@ import XCTest
 final class ReachabilityTests: XCTestCase {
     private var reachability: Reachability!
     //swiftlint:disable weak_delegate
-    private var delegate: MockReachabilityDelegate! = MockReachabilityDelegate()
+    private var delegate: MockReachabilityDelegate!
+
+    override func setUp() {
+        super.setUp()
+        delegate = MockReachabilityDelegate()
+        reachability = Reachability()
+    }
 
     override func tearDown() {
-        reachability = nil
         delegate = nil
+        reachability = nil
         super.tearDown()
     }
 
     func testReachabilityCallbackIfConnectionPreset() {
-        reachability = Reachability()
-        reachability.setDelegate(delegate)
-        wait(for: 1.0) {
-            XCTAssertTrue(self.reachability.isReachable)
-        }
+        waitSync()
+
+        // test
+        XCTAssertTrue(reachability.isReachable)
     }
 
     func testReachabilityDelegateCalledOnConnectionChange() {
-        reachability = Reachability()
+        // sut
         reachability.setDelegate(delegate)
-        wait(for: 1.0) {
-            let invocation = self.delegate.invocations
-                .find(MockReachabilityDelegate.reachabilityDidChange1.name).first
-            let isReachable = invocation?
-                .parameter(for: MockReachabilityDelegate.reachabilityDidChange1.params.isReachable) as? Bool
-            XCTAssertEqual(isReachable, true)
-        }
+
+        waitSync()
+
+        // test
+        let invocation = delegate.invocations
+            .find(MockReachabilityDelegate.reachabilityDidChange1.name).first
+        let isReachable = invocation?
+            .parameter(for: MockReachabilityDelegate.reachabilityDidChange1.params.isReachable) as? Bool
+        XCTAssertEqual(isReachable, true)
     }
 
     func testReachabilityIfNoConnectionPreset() {
-        let unreachableHost = "www.thisishopefullynotarealwebsite.co.uk"
-        reachability = Reachability(host: unreachableHost)
+        // mocks
+        reachability = Reachability(host: "www.thisishopefullynotarealwebsite.co.uk")
         reachability.setDelegate(delegate)
-        wait(for: 1.0) {
-            XCTAssertFalse(self.reachability.isReachable)
-        }
+
+        waitSync()
+
+        // test
+        XCTAssertFalse(reachability.isReachable)
     }
 }
