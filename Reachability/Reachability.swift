@@ -27,26 +27,26 @@ public protocol ReachabilityDelegate: AnyObject, Mockable {
 public final class Reachability: NSObject, Reachable {
     /// Synchronous evaluation of the current flags.
     public var isReachable: Bool {
-        return flags?.contains(.reachable) == true
+        return flags?.isReachable == true
     }
 
     private let reachability: SCNetworkReachability?
     private weak var delegate: ReachabilityDelegate?
-    private var lock = os_unfair_lock()
+    // was originally os_unfair_lock_unlock(), however this isn't compatible with macOS 10.10
+    private let lockQueue = DispatchQueue(label: "com.larromba.Reachability.queue")
     private var _flags: SCNetworkReachabilityFlags?
     private var flags: SCNetworkReachabilityFlags? {
         get {
-            os_unfair_lock_lock(&lock)
-            let value = _flags
-            os_unfair_lock_unlock(&lock)
-            return value
+            return lockQueue.sync {
+                return _flags
+            }
         }
         set {
-            os_unfair_lock_lock(&lock)
-            _flags = newValue
-            os_unfair_lock_unlock(&lock)
-            DispatchQueue.main.async {
-                self.delegate?.reachabilityDidChange(self, isReachable: self.isReachable)
+            lockQueue.sync {
+                _flags = newValue
+                DispatchQueue.main.async {
+                    self.delegate?.reachabilityDidChange(self, isReachable: newValue?.isReachable == true)
+                }
             }
         }
     }
@@ -96,5 +96,13 @@ public final class Reachability: NSObject, Reachable {
 private extension String {
     var isValid: Bool {
         return URL(string: self) != nil
+    }
+}
+
+// MARK: - SCNetworkReachabilityFlags
+
+private extension SCNetworkReachabilityFlags {
+    var isReachable: Bool {
+        return contains(.reachable)
     }
 }
