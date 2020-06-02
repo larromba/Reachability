@@ -19,14 +19,14 @@ final class ReachabilityTests: XCTestCase {
         super.tearDown()
     }
 
-    func testReachabilityCallbackIfConnectionPreset() {
+    func test_reachability_whenConnectionPresent_expectIsReachable() {
         waitSync()
 
         // test
         XCTAssertTrue(reachability.isReachable)
     }
 
-    func testReachabilityDelegateCalledOnConnectionChange() {
+    func test_reachabilityDelegate_whenConnectionChanges_expectDelegateCalled() {
         // sut
         reachability.setDelegate(delegate)
 
@@ -40,9 +40,9 @@ final class ReachabilityTests: XCTestCase {
         XCTAssertEqual(isReachable, true)
     }
 
-    func testReachabilityIfNoConnectionPreset() {
+    func test_reachability_whenNoConnection_expectNotReachable() {
         // mocks
-        reachability = Reachability(host: "www.thisishopefullynotarealwebsite.co.uk")
+        reachability = Reachability(host: "www.thisishopefullynotarealwebsite123456789.co.uk")
         reachability.setDelegate(delegate)
 
         waitSync()
